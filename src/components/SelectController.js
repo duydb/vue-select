@@ -333,7 +333,6 @@ export default {
          * @return {void}
          */
         value(val) {
-            //check here
             if (this.valueHasChange(val)) {
                 this.mutableValue = this.getMultibleValue(val)
             }
@@ -371,6 +370,8 @@ export default {
         mutableOptions() {
             if (!this.taggable && this.resetOnOptionsChange) {
                 this.mutableValue = this.multiple ? [] : null
+            } else {
+                this.mutableValue = this.getMultibleValue(this.value)
             }
         },
 
@@ -400,10 +401,14 @@ export default {
     methods: {
         valueHasChange(val) {
             if (this.multiple) {
-                let flag = !Array.isArray(val) || !Array.isArray(this.value) || val.length !== this.value.length
+                let compareWith = this.mutableValue
+                if (this.valueAs) {
+                    compareWith = this.mutableValue.map(item => item[this.valueAs])
+                }
+                let flag = !Array.isArray(val) || !Array.isArray(compareWith) || val.length !== compareWith.length
                 if (!flag) {
                     for (let i = 0; i < val.length; i++) {
-                        if (val[i] !== this.value[i]) {
+                        if (val[i] !== compareWith[i]) {
                             flag = true
                             break
                         }
@@ -411,7 +416,7 @@ export default {
                 }
                 return flag
             }
-            return val === this.value
+            return val === this.mutableValue
         },
         getMultibleValue(val) {
             let res = val

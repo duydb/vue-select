@@ -20,7 +20,27 @@ new Vue({
     people: [],
     fuseSearchOptions,
     test: 'foo',
-    test2: ['foo', 'foo2']
+    test2: ['foo', 'foo2'],
+    testOption1: [{
+      label: 'Foo',
+      value: 'foo'
+    }, {
+      label: 'Foo2',
+      value: 'foo2'
+    }, {
+      label: 'Foo3',
+      value: 'foo3'
+    }],
+    testOption2: [{
+      label: 'Foo 2 ',
+      value: 'foo'
+    }, {
+      label: 'Foo2 2',
+      value: 'foo2'
+    }, {
+      label: 'Foo3 2',
+      value: 'foo3'
+    }]
   },
   methods: {
     search(search, loading) {

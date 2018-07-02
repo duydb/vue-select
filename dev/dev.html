@@ -28,16 +28,18 @@
 
 <body>
     <div id="app">
-        <v-select placeholder="default" :options="options"></v-select>
+        <!-- <v-select placeholder="default" :options="options"></v-select>
         <v-select placeholder="default, RTL" :options="options" dir="rtl"></v-select>
         <v-select placeholder="default, options=[1,5,10]" :options="[1,5,10]"></v-select>
         <v-select placeholder="multiple" multiple :options="options"></v-select>
-        <v-select placeholder="multiple, taggable" multiple taggable :options="options" no-drop></v-select>
-        <v-select v-model="test" value-as="value" placeholder="multiple, taggable, push-tags" push-tags taggable :options="[{label: 'Foo', value: 'foo'}, {label: 'Foo2', value: 'foo2'}, {label: 'Foo3', value: 'foo3'}]"></v-select>
-        {{test}}
-        <v-select v-model="test2" value-as="value" placeholder="multiple, taggable, push-tags" push-tags taggable multiple :options="[{label: 'Foo', value: 'foo'}, {label: 'Foo2', value: 'foo2'}, {label: 'Foo3', value: 'foo3'}]"></v-select>
+        <v-select placeholder="multiple, taggable" multiple taggable :options="options" no-drop></v-select> -->
+        <!-- <v-select v-model="test" value-as="value" placeholder="multiple, taggable, push-tags" push-tags taggable :options="[{label: 'Foo', value: 'foo'}, {label: 'Foo2', value: 'foo2'}, {label: 'Foo3', value: 'foo3'}]"></v-select>
+        {{test}} -->
+        <button @click="test2 = ['foo3']">TEST</button>
+        <button @click="testOption1 = testOption2">change options</button>
+        <v-select v-model="test2" value-as="value" placeholder="multiple, taggable, push-tags" push-tags taggable multiple :options="testOption1"></v-select>
         {{test2}}
-        <v-select placeholder="multiple, closeOnSelect=true" multiple :options="['cat', 'dog', 'bear']"></v-select>
+        <!-- <v-select placeholder="multiple, closeOnSelect=true" multiple :options="['cat', 'dog', 'bear']"></v-select>
         <v-select placeholder="multiple, closeOnSelect=false" multiple :close-on-select="false" :options="['cat', 'dog', 'bear']"></v-select>
         <v-select placeholder="searchable=false" :options="options" :searchable="false"></v-select>
         <v-select placeholder="search github.." label="full_name" @search="search" :options="ajaxRes"></v-select>
@@ -77,7 +79,7 @@
                 <br>
                 <em>{{ `${option.author.firstName} ${option.author.lastName}` }}</em>
             </template>
-        </v-select>
+        </v-select> -->
     </div>
 </body>
 
